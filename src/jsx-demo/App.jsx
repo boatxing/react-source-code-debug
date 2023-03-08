@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import Index from './inbox/index.jsx'
+import MyButton from './mybutton'
 
 function App() {
   return (
     <div>
-      <Index/>
+      <h1>Welcome to my app</h1>
+      <MyButton />
     </div>
-  )
+  );
 }
 
 export default App;

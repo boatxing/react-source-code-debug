@@ -220,7 +220,7 @@ export function createRoot(
       transitionCallbacks = options.transitionCallbacks;
     }
   }
-
+  debugger;
   const root = createContainer(
     container,
     ConcurrentRoot,

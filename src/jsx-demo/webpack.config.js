@@ -9,30 +9,34 @@ var config = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(jsx|js)?$/,
-        loader: require.resolve('babel-loader'),
-        options: {
-          babelrc: false,
-          configFile: false,
-          compact: false,
-          presets: [
-            [
-              require.resolve('babel-preset-react-app/dependencies'),
-              { helpers: true },
-            ],
-          ],
-          cacheDirectory: true,
-          // See #6846 for context on why cacheCompression is disabled
-          cacheCompression: false,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+            babelrc: false,
+            configFile: false,
+            compact: false,
+         
+            cacheDirectory: true,
+            // See #6846 for context on why cacheCompression is disabled
+            cacheCompression: false,
 
           // Babel sourcemaps are needed for debugging into node_modules
           // code.  Without the options below, debuggers like VSCode
           // show incorrect code and set breakpoints on the wrong lines.
-          sourceMaps: false,
-          inputSourceMap: false,
+            sourceMaps: false,
+            inputSourceMap: false,
+          },
         },
-    }]
+      },
+  ]
+  },
+  resolve: {
+    extensions: [".js", ".jsx"]
   }
 };
 
