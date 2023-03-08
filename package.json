@@ -71,7 +71,7 @@
     "dev:18": "cross-env REACT_VERSION=v18 node scripts/start.js",
     "dev:lanes": "cross-env REACT_VERSION=Lanes node scripts/start.js",
     "dev": "npm run dev:17",
-    "build": "node scripts/build.js",
+    "build": "cross-env REACT_VERSION=v18 node scripts/build.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
